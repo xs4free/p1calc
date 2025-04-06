@@ -12,7 +12,8 @@ Importer:
 - Dynamische tarieven
 - Filters
     - Laadpaal eruit (op basis van langdurig verbruik op 1 fase)
-- Zonnepanelen opbrengst  
+- Zonnepanelen opbrengst
+    - https://apsystemsema.com/
 
 Simulatoren:
 - Zonnepanelen

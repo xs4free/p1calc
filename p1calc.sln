@@ -5,6 +5,20 @@ VisualStudioVersion = 17.8.34330.188
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "p1calc-console", "p1calc-console\p1calc-console.csproj", "{009721B2-F385-422F-9054-E21C24E3A860}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "data", "data", "{02EA681E-C7D8-13C7-8484-4AC65E1B71E8}"
+	ProjectSection(SolutionItems) = preProject
+		data\p1e-totaal-2024.csv = data\p1e-totaal-2024.csv
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{8EC462FD-D22E-90A8-E5CE-7E832BA40C5D}"
+	ProjectSection(SolutionItems) = preProject
+		README.md = README.md
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Importers", "Importers", "{8BB012E2-27E5-45F6-9C39-8BF11D3E1F96}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "APSystemsDownloader", "Importers\APSystemsDownloader\APSystemsDownloader.csproj", "{780F8916-0A89-4329-9EB2-7FE280A46142}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,9 +29,16 @@ Global
 		{009721B2-F385-422F-9054-E21C24E3A860}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{009721B2-F385-422F-9054-E21C24E3A860}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{009721B2-F385-422F-9054-E21C24E3A860}.Release|Any CPU.Build.0 = Release|Any CPU
+		{780F8916-0A89-4329-9EB2-7FE280A46142}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{780F8916-0A89-4329-9EB2-7FE280A46142}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{780F8916-0A89-4329-9EB2-7FE280A46142}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{780F8916-0A89-4329-9EB2-7FE280A46142}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{780F8916-0A89-4329-9EB2-7FE280A46142} = {8BB012E2-27E5-45F6-9C39-8BF11D3E1F96}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {73E250C5-C376-45EF-9895-56A02EF9C08A}
