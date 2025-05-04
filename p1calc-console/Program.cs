@@ -15,26 +15,41 @@ var tarievenHoogLaag = HoogLaagTariefImporter.Import(fileNameTarievenHoogLaag);
 var energyProductieZonnepanelen = ApsImporter.Import(fileNameAps);
 var energyUsageZonderZonnepanelen = RemoveZonnepaneelProductie.Tranform(energyUsage, energyProductieZonnepanelen);
 
-(decimal importP1, decimal exportP1) = await TotaalImportExport(energyUsage);
-Console.WriteLine($"Total Import: {importP1} - Total Export: {exportP1} P1");
-
-(decimal importAPS, decimal exportAPS) = await TotaalImportExport(energyProductieZonnepanelen);
-Console.WriteLine($"Total Import: {importAPS} - Total Export: {exportAPS} APS");
-
-(decimal importZonderAPS, decimal exportZonderAPS) = await TotaalImportExport(energyUsageZonderZonnepanelen);
-Console.WriteLine($"Total Import: {importZonderAPS} - Total Export: {exportZonderAPS} zonder APS");
-
 var kosten = new Kosten();
 
 var totaalHoogLaagMetAps = await kosten.Bereken(energyUsage, tarievenHoogLaag);
-Console.WriteLine($"Total hoog/laag kosten excl belastingen: {totaalHoogLaagMetAps}");
 var totaalHoogLaagZonderAps = await kosten.Bereken(energyUsageZonderZonnepanelen, tarievenHoogLaag);
-Console.WriteLine($"Total hoog/laag kosten excl belastingen zonder APS: {totaalHoogLaagZonderAps}");
 
 var totaalDynamischMetAps = await kosten.Bereken(energyUsage, tarievenDynamisch);
-Console.WriteLine($"Total dynamische kosten excl belastingen: {totaalDynamischMetAps}");
 var totaalDynamischZonderAps = await kosten.Bereken(energyUsageZonderZonnepanelen, tarievenDynamisch);
-Console.WriteLine($"Total dynamische kosten excl belastingen zonder APS: {totaalDynamischZonderAps}");
+
+(decimal importP1, decimal exportP1) = await TotaalImportExport(energyUsage);
+(decimal _, decimal exportAPS) = await TotaalImportExport(energyProductieZonnepanelen);
+(decimal importZonderAPS, decimal exportZonderAPS) = await TotaalImportExport(energyUsageZonderZonnepanelen);
+
+Console.WriteLine($"P1:");
+Console.WriteLine($"Afname: {Math.Round(importP1)} kWh");
+Console.WriteLine($"Terugleveren: {Math.Round(exportP1)} kWh");
+Console.WriteLine();
+
+Console.WriteLine($"Zonnepanelen (APS):");
+Console.WriteLine($"Totaal geproduceerd: {exportAPS} kWh");
+Console.WriteLine($"Eigenverbruik: {exportAPS-exportP1} kWh ({Math.Round((exportAPS - exportP1) / exportAPS * 100)}%)");
+Console.WriteLine();
+
+Console.WriteLine($"Scenario met zonnepanelen:");
+Console.WriteLine($"Afname: {Math.Round(importP1)} kWh");
+Console.WriteLine($"Terugleveren: {Math.Round(exportP1)} kWh");
+Console.WriteLine($"Kosten dynamische contract excl belastingen: {totaalDynamischMetAps:C}");
+Console.WriteLine($"Kosten hoog/laag contract excl belastingen: {totaalHoogLaagMetAps:C}");
+Console.WriteLine();
+
+Console.WriteLine($"Scenario zonder zonnepanelen:");
+Console.WriteLine($"Afname: {Math.Round(importZonderAPS)} kWh");
+Console.WriteLine($"Terugleveren: {Math.Round(exportZonderAPS)} kWh");
+Console.WriteLine($"Kosten hoog/laag contract excl belastingen: {totaalHoogLaagZonderAps:C}");
+Console.WriteLine($"Kosten dynamische contract excl belastingen: {totaalDynamischZonderAps:C}");
+Console.WriteLine();
 
 async Task<(decimal import, decimal export)> TotaalImportExport(IAsyncEnumerable<EnergyUsage> energyUsage)
 {
