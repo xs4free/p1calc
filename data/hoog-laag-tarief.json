@@ -1,0 +1,80 @@
+{
+  "tarieven": [
+    {
+      "type": "hoog",
+      "prijs": 0.16315,
+      "omschrijving": "Hoog tarief voor piekuren",
+      "prioriteit": 1,
+      "momenten": [
+        {
+          "description": "Werkdagen van 7:00-22:59:59",
+          "dagen": [
+            "maandag",
+            "dinsdag",
+            "woensdag",
+            "donderdag",
+            "vrijdag"
+          ],
+          "start": "07:00",
+          "einde": "22:59:59"
+        }]
+    },
+    {
+      "type": "laag",
+      "prijs": 0.12998,
+      "omschrijving": "Laag tarief voor daluren",
+      "prioriteit": 2,
+      "momenten": [
+        {
+          "description": "Werkdagen van 23:00-23:59:59",
+          "dagen": [
+            "maandag",
+            "dinsdag",
+            "woensdag",
+            "donderdag",
+            "vrijdag"
+          ],
+          "start": "23:00",
+          "einde": "23:59:59"
+        },
+        {
+          "description": "Werkdagen van 00:00-07:00",
+          "dagen": [
+            "maandag",
+            "dinsdag",
+            "woensdag",
+            "donderdag",
+            "vrijdag"
+          ],
+          "start": "00:00",
+          "einde": "06:59:59"
+        },
+        {
+          "description": "Zaterdag en zondag heel de dag",
+          "dagen": [
+            "zaterdag",
+            "zondag"
+          ],
+          "start": "00:00",
+          "einde": "23:59"
+        },
+        {
+          "description": "Feestdagen heel de dag",
+          "datums": [
+            "01-01-2024",
+            "31-03-2024",
+            "01-04-2024",
+            "27-04-2024",
+            "09-05-2024",
+            "19-05-2024",
+            "20-05-2024",
+            "25-12-2024",
+            "26-12-2024"
+          ],
+          "start": "00:00",
+          "einde": "23:59"
+        }
+      ]
+    }
+  ]
+}

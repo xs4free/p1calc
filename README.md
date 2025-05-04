@@ -9,7 +9,9 @@ Importer:
 V HomeWizard
     - combineer meerdere bestanden tot 1 jaar
     V combineer kwartieren naar uren per dag
-- Dynamische tarieven
+V Dynamische tarieven
+    V Jeroen.nl dynamische tarieven csv
+V Vaste hoog/laag tarieven Van De Bron
 - Filters
     - Laadpaal eruit (op basis van langdurig verbruik op 1 fase)
 - Zonnepanelen opbrengst
@@ -22,6 +24,6 @@ Simulatoren:
 - Laadpaal 3 fase
 
 Kosten berekenen
-- vast contract 
-- dynamisch contract
+V vast contract 
+V dynamisch contract
 
