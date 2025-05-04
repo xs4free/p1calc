@@ -6,9 +6,9 @@ Berekening electrakosten op basis van p1-meter logs
 DataModel
 
 Importer:
-- HomeWizard
+V HomeWizard
     - combineer meerdere bestanden tot 1 jaar
-    - combineer kwartieren naar uren per dag
+    V combineer kwartieren naar uren per dag
 - Dynamische tarieven
 - Filters
     - Laadpaal eruit (op basis van langdurig verbruik op 1 fase)

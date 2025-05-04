@@ -20,6 +20,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Importers", "Importers", "{
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "APSystemsDownloader", "Importers\APSystemsDownloader\APSystemsDownloader.csproj", "{780F8916-0A89-4329-9EB2-7FE280A46142}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "P1Library", "P1Library\P1Library.csproj", "{67C806A7-A9DA-4074-B8B4-F0D1B4E3A512}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -34,6 +36,10 @@ Global
 		{780F8916-0A89-4329-9EB2-7FE280A46142}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{780F8916-0A89-4329-9EB2-7FE280A46142}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{780F8916-0A89-4329-9EB2-7FE280A46142}.Release|Any CPU.Build.0 = Release|Any CPU
+		{67C806A7-A9DA-4074-B8B4-F0D1B4E3A512}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{67C806A7-A9DA-4074-B8B4-F0D1B4E3A512}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{67C806A7-A9DA-4074-B8B4-F0D1B4E3A512}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{67C806A7-A9DA-4074-B8B4-F0D1B4E3A512}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
