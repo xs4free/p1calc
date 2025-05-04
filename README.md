@@ -14,8 +14,9 @@ V Dynamische tarieven
 V Vaste hoog/laag tarieven Van De Bron
 - Filters
     - Laadpaal eruit (op basis van langdurig verbruik op 1 fase)
-- Zonnepanelen opbrengst
-    - https://apsystemsema.com/
+    V Zonnepanelen eruit
+V Zonnepanelen opbrengst
+    V https://apsystemsema.com/
 
 Simulatoren:
 - Zonnepanelen
