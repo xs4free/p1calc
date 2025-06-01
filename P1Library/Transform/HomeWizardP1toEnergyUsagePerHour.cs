@@ -6,26 +6,26 @@ namespace P1Library.Transform
     {
         public static async IAsyncEnumerable<EnergyUsage> Convert(IAsyncEnumerable<P1Data> data)
         {
-            P1Data? previousData = null;
+            List<P1Data> previousData = [];
 
             await foreach(var item in data)
             {
-                if (previousData == null)
-                {
-                    previousData = item;
-                    continue;
-                }
-
                 // gebruik > om wissel naar zomertijd op te vangen
-                if (item.DateTime >= previousData.DateTime.AddHours(1))
+                if (previousData.Any() &&
+                    item.DateTime >= previousData.First().DateTime.AddHours(1))
                 {
                     yield return new EnergyUsage
                     {
-                        DateTime = item.DateTime,
-                        Import = (item.ImportT1 - previousData.ImportT1) + (item.ImportT2 - previousData.ImportT2),
-                        Export = (item.ExportT1 - previousData.ExportT1) + (item.ExportT2 - previousData.ExportT2)
+                        DateTime = previousData.First().DateTime,
+                        Import = (item.ImportT1 - previousData.First().ImportT1) + (item.ImportT2 - previousData.First().ImportT2),
+                        Export = (item.ExportT1 - previousData.First().ExportT1) + (item.ExportT2 - previousData.First().ExportT2),
+                        P1Lines = previousData
                     };
-                    previousData = item;
+                    previousData = [item];
+                }
+                else
+                {
+                    previousData.Add(item);
                 }
             }
         }

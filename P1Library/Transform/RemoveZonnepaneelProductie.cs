@@ -4,7 +4,7 @@ namespace P1Library.Transform
 {
     public class RemoveZonnepaneelProductie
     {
-        public static async IAsyncEnumerable<EnergyUsage> Tranform(
+        public static async IAsyncEnumerable<EnergyUsage> Transform(
             IAsyncEnumerable<EnergyUsage> p1Data,
             IAsyncEnumerable<EnergyUsage> apsData)
         {
@@ -22,7 +22,8 @@ namespace P1Library.Transform
                     {
                         DateTime = p1Item.DateTime,
                         Import = newImport,
-                        Export = newExport
+                        Export = newExport,
+                        P1Lines = p1Item.P1Lines,
                     };
                 }
                 else
