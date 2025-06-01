@@ -16,6 +16,7 @@ var tarievenHoogLaag = HoogLaagTariefImporter.Import(fileNameTarievenHoogLaag);
 var energyProductieZonnepanelen = ApsImporter.Import(fileNameAps);
 var energyUsageZonderZonnepanelen = RemoveZonnepaneelProductie.Transform(energyUsage, energyProductieZonnepanelen);
 var energyUsageZonderZonnepanelenZonderLaadpaal = RemoveEnkelfaseLaadpaal.Transform(energyUsageZonderZonnepanelen, 3, 1900, TimeSpan.FromMinutes(45));
+var laadpaalSessies = await LaadSessiesTellen.Transform(energyUsageZonderZonnepanelenZonderLaadpaal);
 
 var kosten = new Kosten();
 
@@ -56,7 +57,7 @@ Console.WriteLine($"Kosten hoog/laag contract excl belastingen: {totaalHoogLaagZ
 Console.WriteLine($"Kosten dynamische contract excl belastingen: {totaalDynamischZonderAps:C}");
 Console.WriteLine();
 
-Console.WriteLine($"Scenario zonder zonnepanelen zonder laadpaal:");
+Console.WriteLine($"Scenario zonder zonnepanelen zonder laadpaal ({laadpaalSessies} sessies)");
 Console.WriteLine($"Afname: {Math.Round(importZonderAPSZonderLaadpaal)} kWh");
 Console.WriteLine($"Terugleveren: {Math.Round(exportZonderAPSZonderLaadpaal)} kWh");
 Console.WriteLine($"Kosten hoog/laag contract excl belastingen: {totaalHoogLaagZonderApsZonderLaadpaal:C}");

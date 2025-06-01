@@ -20,8 +20,10 @@ namespace P1Library.Transform
                 var power = fase == 1 ? line.PowerL1 : fase == 2 ? line.PowerL2 : line.PowerL3;
                 if (power > minimumPower && index < p1Lines.Count - 1)
                 {
-                    var possibleLaadpaalTimes = new HashSet<DateTime>();
-                    possibleLaadpaalTimes.Add(line.DateTime);
+                    var possibleLaadpaalTimes = new HashSet<DateTime>
+                    {
+                        line.DateTime
+                    };
 
                     for (int index2 = index+1; index2 < p1Lines.Count; index2++)
                     {
@@ -60,7 +62,8 @@ namespace P1Library.Transform
                         DateTime = item.DateTime,
                         Import = item.Import - (powerUsedByLaadpaal / 1000),
                         Export = item.Export,
-                        P1Lines = item.P1Lines
+                        P1Lines = item.P1Lines,
+                        LaadpaalActief = true,
                     };
                 }
                 else
